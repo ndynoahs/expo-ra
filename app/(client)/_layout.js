@@ -1,5 +1,5 @@
-import { Stack } from "expo-router";
-import NewBidPage from "../../components/client/dashboard/NewBidPage";
+import { Stack } from 'expo-router';
+import NewBidPage from '../../components/client/dashboard/NewBidPage';
 
 export default function Layout() {
   return (

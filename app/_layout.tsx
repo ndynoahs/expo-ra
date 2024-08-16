@@ -36,8 +36,8 @@ export default function RootLayout() {
           backgroundColor: 'yellow',  // It should be yellow color
         },
       }}>
-        {/* <Stack.Screen name="(tabs)" options={{ title: "something" }}  /> */}
-        <Stack.Screen name="(client)" options={{ title: "something" }}  />
+        <Stack.Screen name="(tabs)" options={{ title: "something" }}  />
+        {/* <Stack.Screen name="(client)" options={{ title: "something" }}  /> */}
 
         <Stack.Screen name="+not-found" />
       </Stack>

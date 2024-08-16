@@ -1,20 +1,20 @@
-import React from "react";
-import { View } from "react-native";
-import BottomNav from "../../components/general/BottomNav";
-import { createStackNavigator } from "@react-navigation/stack";
-import Notification from "../../components/Header/Notification";
-import { useSelector } from "react-redux";
-import WokerDashBoard from "../../components/worker/pages/WokerDashBoard";
-import NewBidPage from "../../components/client/dashboard/NewBidPage";
+import React from 'react';
+import { View } from 'react-native';
+// import BottomNav from '../../components/general/BottomNav';
+// import { createStackNavigator } from '@react-navigation/stack';
+// import Notification from "../../components/Header/Notification";
+// import { useSelector } from "react-redux";
+// import WokerDashBoard from "../../components/worker/pages/WokerDashBoard";
+// import NewBidPage from "../../components/client/dashboard/NewBidPage";
 
 const LooggedPage = () => {
   const Stack = createStackNavigator();
   const user = useSelector((state) => state.user.user);
-  const isClient = user?.userRole === "client" ? true : false;
+  const isClient = user?.userRole === 'client' ? true : false;
   console.log(user?.userRole);
 
   return (
-    <View style={{ height: "100%" }}>
+    <View style={{ height: '100%' }}>
       {/* {isClient ? ( */}
       <Stack.Navigator>
         <Stack.Screen
