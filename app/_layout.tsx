@@ -1,4 +1,10 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from '@react-navigation/native';
+import { Provider } from 'react-redux';
+
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -6,6 +12,8 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import store from '@/store';
+import { selectRole } from '@/store/slice/role';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -27,20 +35,20 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack       
-      screenOptions={{
-        headerShown: true,
-        gestureEnabled: true,
-        headerStyle: {
-          backgroundColor: 'yellow',  // It should be yellow color
-        },
-      }}>
-        <Stack.Screen name="(tabs)" options={{ title: "something" }}  />
-        {/* <Stack.Screen name="(client)" options={{ title: "something" }}  /> */}
-
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            gestureEnabled: true,
+          }}
+        >
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="(main)" />
+          <Stack.Screen name="(client)" />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </ThemeProvider>
+    </Provider>
   );
 }
